@@ -31,14 +31,14 @@ Go servis koji treba da pokrije ocenjivanje i komentarisanje filmova od strane r
 <h3>Mikroservis za analitiku</h3>
 Pharo servis koji omogućava prikaz izveštaja koji su definisani u okviru funkcionalnosti menadžera.
 
-<h3>Vue Client</h3>
-Omogućava pristup svim funkcionalnostima sistema.
-
 <h3>Cron job-ovi za poništavanje rezervacije</h3>
 Flask mikroservis koji bi svakih 15 minuta poništavao rezervacije koje nisu potvrdjene - ako se kupac koji je rezervisao kartu ne pojavi na vreme (pola sata pre početka projekcije), karta se vraća u slobodnu prodaju.
 
-<h3>Mikroservis za rezrevaciju i kupovinu karata</h3>
-Go servis koji omogućava registrovanim korisnicima da rezervišu karte a prodavcima da rezervišu i prodaju karte.
+<h3>Mikroservis za rezervaciju i kupovinu karata</h3>
+Go servis koji omogućava registrovanim korisnicima da rezervišu karte, a prodavcima da rezervišu i prodaju karte.
 
 <h3>Mikroservis za dodavanje i pretraživanje</h3>
 Go servis koji omogućava menadžerima da dodaju nove filmove i projekcije. Ostalim korisnicima u sistemu omogućava pretrage filmova, projekcija i karata.
+
+<h3>Vue Client</h3>
+Omogućava pristup svim funkcionalnostima sistema.
