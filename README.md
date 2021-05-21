@@ -2,7 +2,7 @@
 Predmetni projekat iz Naprednih tehnika programiranja
 
 <h2>Opis aplikacije</h2>
-GoCinema je portal koji omogućuje korisnicima da pregledaju, pretražuju bioskopske projekcije i pregledaju, pretražuju i ocenjuju filmove koje nudi bioskop, a zatim i da rezervišu karte za odabrane projekcije. 
+GoCinema je portal koji omogućuje korisnicima da pregledaju, pretražuju bioskopske projekcije i pregledaju, pretražuju i ocenjuju filmove koje nudi bioskop, a i da rezervišu karte za odabrane projekcije. 
 
 Uloge koje postoje u sistemu su registrovani korisnici, prodavci i menadžeri, medjutim portal mogu koristiti i neautentifikovani korisnici.
 
@@ -10,7 +10,7 @@ Uloge koje postoje u sistemu su registrovani korisnici, prodavci i menadžeri, m
 Neautentifikovani korisnik ima mogućnost da se prijavi i registruje na sistem. Prilikom registracije, neautentifikovani korisnik unosi korisničko ime, email, lozinku, ime i prezime. Nakon uspešne registracije, korisnik može da se uloguje i koristi ostale funkcionalnosti sistema. Neautentifikovani korisnik može da pregleda dostupne filmove i projekcije i da ih pretražuje po različitim kriterijumima.
 
 <h3>Funkcionalnosti registrovanog korisnika</h3>
-Registrocani korisnik ima mogućnost da ocenjuje i komentariše filmove. Takodje, registrovani korisnik može i da rezerviše karte. Rezervisanje karte podrazumeva odabir željene projekcije a zatim i odabir jednog od slobodnih sedišta (za koja karte nisu ni rezervisane ni prodate). Registrovani korisnik ima mogućnost pregleda, pretrage i poništavanja rezervisanih karata pri čemu se rezervacija karte može poništiti najkasnije 24 sata pre početka date projekcije.
+Registrovani korisnik ima mogućnost da ocenjuje i komentariše filmove. Takodje, registrovani korisnik može i da rezerviše karte. Rezervisanje karte podrazumeva odabir željene projekcije a zatim, i odabir jednog od slobodnih sedišta (za koja karte nisu ni rezervisane ni prodate). Registrovani korisnik ima mogućnost pregleda, pretrage i poništavanja rezervisanih karata pri čemu se rezervacija karte može poništiti najkasnije 24 sata pre početka date projekcije.
 
 <h3>Funkcionalnosti prodavca</h3>
 Prodavac može kao i ostali korisnici da pregleda i pretražuje filmove kao i projekcije, takodje može da rezerviše karte za kupce. Nudi mu se i pregled, pretraga i poništavanje rezervisanih i prodatih karata pri čemu se prodata ili rezervisana karta može poništiti najkasnije 24 sata pre početka date projekcije. 
