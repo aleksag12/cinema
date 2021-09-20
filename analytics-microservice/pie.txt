@@ -1,0 +1,41 @@
+| login accessor session ticketsPerMovie ticketsPerMovieLabeled pie lb sevenDays |
+
+PharoDatabaseAccessor DefaultDriver: P3DatabaseDriver.
+
+login := Login new
+	database: PostgreSQLPlatform new;
+	username: 'postgres';
+	password: 'dejanradonjic';
+	host: 'localhost';
+	port: '5432';
+	databaseName: 'go_cinema_tickets'.
+
+session := GlorpTicketDescriptorSystem sessionForLogin: login.
+session login.
+
+sevenDays := DateAndTime now asMilliseconds - 2178014388000.
+
+ticketsPerMovie := ((SimpleQuery read: Ticket)
+	where: [ :e | e date_time > sevenDays ];
+	retrieve: [ :e | e movie_name];
+	retrieve: [ :e | e price count ];
+	groupBy: [ :e | e movie_name ]
+	) executeIn: session.
+	
+ticketsPerMovieLabeled := Set new.
+
+ticketsPerMovie do: [ :each | ticketsPerMovieLabeled add: ((each at: 1) -> (each at: 2)) ].
+
+pie := RTPieBuilder new.
+pie interaction popup.
+pie objects: ticketsPerMovieLabeled asArray.
+pie slice: #value.
+pie labeled: #key.
+pie normalizer distinctColor.
+
+lb := RTLegendBuilder new.
+lb view: pie view.
+lb addText: 'Ratio of number of sold tickets by movie in last 7 days'.
+lb build.
+
+pie

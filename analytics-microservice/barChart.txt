@@ -1,0 +1,40 @@
+| login accessor session ticketsPerMovie ticketsPerMovieLabeled b ds sevenDays |
+
+PharoDatabaseAccessor DefaultDriver: P3DatabaseDriver.
+
+login := Login new
+	database: PostgreSQLPlatform new;
+	username: 'postgres';
+	password: 'dejanradonjic';
+	host: 'localhost';
+	port: '5432';
+	databaseName: 'go_cinema_tickets'.
+
+session := GlorpTicketDescriptorSystem sessionForLogin: login.
+session login.
+
+sevenDays := DateAndTime now asMilliseconds - 2178014388000.
+
+ticketsPerMovie := ((SimpleQuery read: Ticket)
+	where: [ :e | e date_time > sevenDays ];
+	retrieve: [ :e | e movie_name];
+	retrieve: [ :e | e price sum ];
+	groupBy: [ :e | e movie_name ]
+	) executeIn: session.
+	
+ticketsPerMovieLabeled := Dictionary new.
+
+ticketsPerMovie do: [ :each | ticketsPerMovieLabeled at: (each at: 1) put: (each at: 2) ].
+
+ticketsPerMovieLabeled := Set new.
+
+ticketsPerMovie do: [ :each | ticketsPerMovieLabeled add: ((each at: 1) -> (each at: 2)) ].
+
+b := RTGrapher new.
+
+d := RTMultipleData new.
+d points: ticketsPerMovieLabeled asArray.
+d addMetric: #value.
+d barChartWithBarCenteredTitle: #key.
+b add: d.
+b
