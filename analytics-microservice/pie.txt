@@ -17,6 +17,7 @@ sevenDays := DateAndTime now asMilliseconds - 2178014388000.
 
 ticketsPerMovie := ((SimpleQuery read: Ticket)
 	where: [ :e | e date_time > sevenDays ];
+	where: [ :e | e sold = 'true' ];
 	retrieve: [ :e | e movie_name];
 	retrieve: [ :e | e price count ];
 	groupBy: [ :e | e movie_name ]
